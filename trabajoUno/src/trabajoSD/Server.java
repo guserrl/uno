@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
+
 public class Server {	
 	public Server(int puerto) {
 		ServerSocket ss;

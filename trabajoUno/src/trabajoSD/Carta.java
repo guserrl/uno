@@ -1,5 +1,6 @@
 package trabajoSD;
 
+
 import java.io.Serializable;
 
 public class Carta implements Serializable{
