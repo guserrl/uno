@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
@@ -12,10 +13,10 @@ import javax.swing.ImageIcon;
 // Las unicas Negras son cambia color y roba 4 que son 4 cartas cada una
 
 public class Baraja implements Serializable{
-	private List<Carta> cartas; 
+	private Vector<Carta> cartas; 
 	
 	public Baraja() {
-		cartas = new ArrayList<Carta>();
+		cartas = new Vector<Carta>();
 	}
 	//Crea o reseea la baraja de cartas
 	public void reset() {
@@ -45,7 +46,7 @@ public class Baraja implements Serializable{
 	}
 	
 	//Cambia la baraja con una array de cartas
-	public void reemplazar(ArrayList<Carta> cartas) {
+	public void reemplazar(Vector<Carta> cartas) {
 		this.cartas=cartas;
 	}
 	//Comprueba el tamaño de la baraja
@@ -65,30 +66,14 @@ public class Baraja implements Serializable{
 		}
 	}
 	
-	public Carta robaCarta() throws IllegalArgumentException{
-		if(barajaVacia()) {
-			throw new IllegalArgumentException("No quedan cartas que robar");
-		}
+	public Carta robaCarta(){
 		Carta c = this.cartas.get(0);
 		this.cartas.remove(0);
 		return c;
 	}
-	/*
-	public ImageIcon robaCartaImagen() throws IllegalArgumentException{
-		if(barajaVacia()) {
-			throw new IllegalArgumentException("No quedan cartas que robar");
-		}
-		return new ImageIcon(this.cartas[--this.tamañoBaraja].toString()+".png");
-	}*/
 	
-	public ArrayList<Carta> robaCarta(int n) throws IllegalArgumentException{
-		if(n<0) {
-			throw new IllegalArgumentException("Tienes que robar un numero positivo");
-		}
-		if(n>this.cartas.size()) {
-			throw new IllegalArgumentException("No hay suficientes cartas en la baraja para robar");
-		}
-		ArrayList<Carta> c = new ArrayList<Carta>();
+	public Vector<Carta> robaCarta(int n){		
+		Vector<Carta> c = new Vector<Carta>();
 		
 		for(int i=0;i<n;i++) {
 			c.add(this.cartas.get(0));
